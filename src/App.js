@@ -4,8 +4,14 @@ import styled, { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import GlobalStyles from './GlobalStyles'
 import { FormControl, MenuItem, Select } from '@material-ui/core'
+import InfoBox from './InfoBox'
+import Map from './Map'
 
-const AppWrapper = styled.div``
+//#region styles
+const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -16,6 +22,11 @@ const HeaderWrapper = styled.div`
     font-size: 40px;
   }
 `
+const StatsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+//#endregion
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -58,12 +69,13 @@ function App() {
               ))}
             </Select>
           </FormControl>
-          <StatsWrapper></StatsWrapper>
         </HeaderWrapper>
-
-        {/* <InfoBox /> */}
-        {/* <InfoBox /> */}
-        {/* <InfoBox /> */}
+        <StatsWrapper>
+          <InfoBox title="Coronavirus Cases" total={3000} cases={1234} />
+          <InfoBox title="Recovered" total={7000} cases={5678} />
+          <InfoBox title="Deaths" total={9000} cases={9078} />
+        </StatsWrapper>
+        <Map />
 
         {/* <Table /> */}
         {/* <Graph /> */}

@@ -8,5 +8,9 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Open Sans Condensed', sans-serif;
 }
+
+body {
+  background-color: #efe5dc
+}
 `
 export default GlobalStyles
