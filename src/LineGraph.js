@@ -52,7 +52,7 @@ const options = {
   },
 }
 
-const buildChartData = (data, casesType = 'cases') => {
+const buildChartData = (data, casesType) => {
   let chartData = []
   let lastDataPoint
 
@@ -69,7 +69,7 @@ const buildChartData = (data, casesType = 'cases') => {
   return chartData
 }
 
-function LineGraph({ casesType = 'cases' }) {
+function LineGraph({ casesType }) {
   const [data, setData] = useState({})
 
   useEffect(() => {
@@ -79,7 +79,7 @@ function LineGraph({ casesType = 'cases' }) {
           return response.json()
         })
         .then((data) => {
-          const chartData = buildChartData(data, 'cases')
+          const chartData = buildChartData(data, casesType)
           setData(chartData)
         })
     }
