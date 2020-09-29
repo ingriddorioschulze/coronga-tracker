@@ -34,7 +34,12 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
 
   .title {
-    font-size: 40px;
+    font-size: 2rem;
+    color: #fc3c3c;
+    font-weight: bold;
+  }
+  .app__dropdown {
+    background-color: white;
   }
 `
 const StatsWrapper = styled.div`
@@ -47,7 +52,24 @@ const StatsWrapper = styled.div`
 const AppLeft = styled.div`
   flex: 0.9;
 `
-const AppRight = styled.div``
+const AppRight = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .muiCardContent-root {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+
+  .app__graph {
+    flex-grow: 1;
+  }
+  .app__graph-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+`
 
 //#endregion
 
@@ -112,7 +134,7 @@ function App() {
       <AppWrapper>
         <AppLeft>
           <HeaderWrapper>
-            <div className="title">Coronga Tracker</div>
+            <div className="title">CORONGA-19 TRACKER</div>
             <FormControl className="app__dropdown">
               <Select
                 variant="outlined"
@@ -163,8 +185,8 @@ function App() {
             <CardContent>
               <h3>Live Cases by Country</h3>
               <Table countries={tableData} />
-              <h3>Worldwide new {casesType}</h3>
-              <LineGraph casesType={casesType} />
+              <h3 className="app__graph-title">Worldwide new {casesType}</h3>
+              <LineGraph className="app__graph" casesType={casesType} />
             </CardContent>
           </Card>
         </AppRight>
